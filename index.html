@@ -67,6 +67,35 @@ section{
   min-height:100vh;
 }
 
+/* HERO GRAPH BACKGROUND */
+.hero{
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(2,6,23,0.4), #020617);
+  z-index:1;
+}
+
+.hero svg{
+  position:absolute;
+  width:120%;
+  height:100%;
+  top:0;
+  left:-10%;
+  opacity:0.25;
+  z-index:0;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
 .hero h1{font-size:52px;max-width:750px}
 .hero p{color:#94a3b8;max-width:650px}
 
@@ -91,6 +120,13 @@ section{
   border:1px solid rgba(255,255,255,0.08);
   position:relative;
   overflow:hidden;
+  transition:all 0.3s ease;
+  cursor:pointer;
+}
+
+.vault-card:hover{
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:0 20px 40px rgba(0,0,0,0.5);
 }
 
 .vault-card::before{
@@ -173,25 +209,35 @@ footer{
 </header>
 
 <section id="home" class="hero">
-  <h1>The Ultimate Hedge in Crypto Finance</h1>
-  <p>One token. Backed by gold, USDC, and yield-generating Ethereum. Transparent. On-chain. Built for stability and growth.</p>
+
+  <!-- GRAPH BACKGROUND -->
+  <svg viewBox="0 0 300 100" preserveAspectRatio="none">
+    <polyline points="0,80 30,60 60,70 90,40 120,50 150,30 180,40 210,20 240,25 270,10 300,15"
+      fill="none" stroke="#22c55e" stroke-width="2"/>
+  </svg>
+
+  <div class="hero-content">
+    <h1>The Ultimate Hedge in Crypto Finance</h1>
+    <p>One token. Backed by gold, USDC, and yield-generating Ethereum. Transparent. On-chain. Built for stability, growth, and passive income.</p>
+  </div>
+
 </section>
 
 <section id="about">
   <h2>About Rebullion</h2>
   <div class="card">
     <p>
-    Rebullion Finance is a tokenized asset fund designed to combine the strengths of traditional finance with blockchain transparency. Each REB token represents ownership in a diversified portfolio of USDC, tokenized gold, and Ethereum.
+    Rebullion Finance is a tokenized asset fund engineered to bring institutional-grade portfolio management on-chain. Each REB token represents a proportional share of a diversified reserve composed of USDC, tokenized gold, and Ethereum.
     <br><br>
-    When users purchase REB, funds are automatically allocated into three core vaults:
+    When an investor purchases REB, their capital is programmatically allocated across three vaults — each serving a specific financial purpose within the ecosystem.
     <br><br>
-    • USDC for liquidity and stability<br>
-    • Gold for long-term hedging<br>
-    • Ethereum for growth and staking yield
+    The USDC vault provides liquidity and stability, ensuring that the system remains resilient during volatility. The Gold vault introduces a traditional hedge, protecting against inflation and macroeconomic uncertainty. The Ethereum vault functions as the growth and yield engine, generating passive income through staking rewards.
     <br><br>
-    The Net Asset Value (NAV) is calculated from all vault holdings. As Ethereum generates yield and asset prices fluctuate, REB reflects the total value of the fund.
+    The value of REB is derived from the Net Asset Value (NAV) of all underlying vaults combined. As Ethereum generates yield and market prices fluctuate, the NAV evolves dynamically, directly impacting the value of the token.
     <br><br>
-    All reserves are transparently stored and publicly verifiable. Rebullion is designed to be a modern hedge fund — simplified, secure, and fully on-chain.
+    Every asset within Rebullion is transparently stored in publicly verifiable wallets, allowing users to independently confirm reserves in real-time. This eliminates the opacity commonly found in both traditional finance and many crypto platforms.
+    <br><br>
+    By combining stability, real-world asset exposure, and blockchain-native yield, Rebullion Finance creates a unified financial instrument designed to perform across market cycles — a true all-weather hedge for the modern investor.
     </p>
   </div>
 </section>
@@ -200,77 +246,65 @@ footer{
   <h2>Vaults</h2>
   <div class="vault-grid">
 
-    <!-- GOLD -->
-    <div class="vault-card gold">
+    <a href="#" class="vault-card gold">
       <div class="vault-header">
         <div class="vault-title">Gold Vault</div>
         <div class="badge">Stable Hedge</div>
       </div>
       <div class="balance">$0.00</div>
-
       <div class="vault-stats">
         <div class="stat"><span>Total Locked</span>$0.00</div>
         <div class="stat"><span>Liquidity</span>$0.00</div>
         <div class="stat"><span>Users</span>0</div>
         <div class="stat"><span>Management Fee</span>1.0%</div>
       </div>
-
       <div class="chart">
         <svg width="100%" height="80">
           <polyline points="0,70 50,50 100,60 150,40 200,45" fill="none" stroke="#facc15" stroke-width="2"/>
         </svg>
       </div>
-
       <p>Gold-backed assets providing long-term protection against inflation.</p>
-    </div>
+    </a>
 
-    <!-- USDC -->
-    <div class="vault-card usdc">
+    <a href="#" class="vault-card usdc">
       <div class="vault-header">
         <div class="vault-title">USDC Vault</div>
         <div class="badge">Liquidity Layer</div>
       </div>
       <div class="balance">$0.00</div>
-
       <div class="vault-stats">
         <div class="stat"><span>Total Locked</span>$0.00</div>
         <div class="stat"><span>Liquidity</span>$0.00</div>
         <div class="stat"><span>Users</span>0</div>
         <div class="stat"><span>Management Fee</span>0.5%</div>
       </div>
-
       <div class="chart">
         <svg width="100%" height="80">
           <polyline points="0,60 50,58 100,57 150,56 200,55" fill="none" stroke="#22c55e" stroke-width="2"/>
         </svg>
       </div>
-
       <p>Stablecoin reserves ensuring liquidity and smooth redemptions.</p>
-    </div>
+    </a>
 
-    <!-- ETH -->
-    <div class="vault-card eth">
+    <a href="#" class="vault-card eth">
       <div class="vault-header">
         <div class="vault-title">ETH Staking Vault</div>
         <div class="badge">Yield Engine</div>
       </div>
       <div class="balance">$0.00</div>
-
       <div class="vault-stats">
         <div class="stat"><span>Total Locked</span>$0.00</div>
         <div class="stat"><span>APY</span>~4-6%</div>
         <div class="stat"><span>Users</span>0</div>
         <div class="stat"><span>Management Fee</span>1.5%</div>
       </div>
-
       <div class="chart">
         <svg width="100%" height="80">
           <polyline points="0,70 50,40 100,50 150,30 200,20" fill="none" stroke="#38bdf8" stroke-width="2"/>
         </svg>
       </div>
-
       <p>Staked Ethereum generating passive yield and long-term upside.</p>
-    </div>
+    </a>
 
   </div>
 </section>
