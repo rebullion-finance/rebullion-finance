@@ -9,19 +9,17 @@
 <style>
 body{margin:0;font-family:'Inter',sans-serif;background:#020617;color:#fff;overflow-x:hidden}
 
-/* animated bg */
 body::before{content:"";position:fixed;width:200%;height:200%;top:-50%;left:-50%;background:radial-gradient(circle at 30% 30%, rgba(0,255,174,0.15), transparent 60%),radial-gradient(circle at 70% 70%, rgba(0,200,255,0.15), transparent 60%);animation:move 25s linear infinite;z-index:-1}
 @keyframes move{0%{transform:translate(0,0)}50%{transform:translate(60px,60px)}100%{transform:translate(0,0)}}
 
 header{position:fixed;width:100%;top:0;display:flex;justify-content:space-between;align-items:center;padding:15px 40px;background:rgba(2,6,23,0.7);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.05);z-index:1000}
-header img{height:72px}
+header img{height:60px}
 nav a{margin:0 14px;color:#fff;text-decoration:none}
 nav a:hover{color:#00ffae}
 .btn{background:linear-gradient(90deg,#00ffae,#00ffa2);padding:10px 16px;border-radius:6px;color:black;font-weight:600}
 
 section{padding:120px 60px;min-height:100vh}
 
-/* HERO */
 .hero{position:relative}
 .hero svg{position:absolute;width:120%;height:100%;top:0;left:-10%;opacity:0.5}
 .hero polyline{filter:drop-shadow(0 0 6px #00ffae)}
@@ -36,7 +34,11 @@ section{padding:120px 60px;min-height:100vh}
 
 .card{background:rgba(15,23,42,0.6);border-radius:14px;padding:30px}
 
-/* VAULTS BIG */
+.about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;margin-top:30px}
+.about-box{background:linear-gradient(145deg,#020617,#0f172a);padding:25px;border-radius:16px;border:1px solid rgba(255,255,255,0.08)}
+.about-box h3{margin-bottom:10px}
+.about-box p{color:#cbd5f5;font-size:14px}
+
 .vault-grid{display:grid;grid-template-columns:1fr;gap:40px;margin-top:40px}
 
 .vault-card{display:flex;flex-direction:column;background:linear-gradient(145deg,#020617,#0f172a);border-radius:20px;padding:35px;border:1px solid rgba(255,255,255,0.08);transition:all .3s ease;cursor:pointer;position:relative}
@@ -59,10 +61,14 @@ section{padding:120px 60px;min-height:100vh}
 
 .cta{margin-top:20px;padding:10px;border:1px solid rgba(0,255,174,0.4);border-radius:8px;text-align:center;color:#00ffae}
 
-/* BUY */
 .buy-box{max-width:500px;margin:auto;background:rgba(15,23,42,0.7);padding:30px;border-radius:16px;border:1px solid rgba(255,255,255,0.1)}
 input{width:100%;padding:12px;margin-top:10px;border-radius:6px;border:none;background:#020617;color:white}
 .buy-btn{margin-top:15px;width:100%;padding:12px;background:#00ffae;border:none;border-radius:6px;font-weight:600;cursor:pointer}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:30px}
+.step-box{background:linear-gradient(145deg,#020617,#0f172a);padding:20px;border-radius:14px;border:1px solid rgba(255,255,255,0.08)}
+.step-box h4{color:#00ffae;margin-bottom:10px}
+.step-box p{color:#cbd5f5;font-size:14px}
 
 footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,0.05);color:#888}
 </style>
@@ -86,20 +92,33 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,0.05
 <div class="hero-content">
 <h1>The Ultimate Hedge in Crypto Finance</h1>
 <p>One token. Backed by gold, USDC, and yield-generating Ethereum.</p>
-
 <div class="metrics">
 <div class="metric"><span>REB Price</span><strong>$1.00</strong></div>
-<div class="metric"><span>Total Value Locked</span><strong>$168,382.32</strong></div>
+<div class="metric"><span>Total Value Locked</span><strong>$0</strong></div>
 <div class="metric"><span>Estimated APY</span><strong>4–6%</strong></div>
 </div>
-
 </div>
 </section>
 
 <section id="about">
 <h2>About</h2>
-<div class="card">
-<p>Rebullion Finance is a tokenized, asset-backed fund designed to give investors diversified exposure to stability, growth, and yield—without sacrificing liquidity. When a user purchases REB, their capital is automatically allocated across three core asset classes: USDC for stability and liquidity, tokenized gold for long-term macro hedging and inflation protection, and Ethereum for growth and staking-based yield generation. Unlike traditional staking or locked DeFi positions, REB holders are never locked into a contract—their investment is represented by a liquid token that can be freely transferred, sold, or redeemed at any time. The value of REB is determined by its Net Asset Value (NAV), calculated as the total value of all assets held across the vaults divided by the circulating supply of tokens. As Ethereum generates yield and market prices shift, the NAV updates dynamically, allowing REB to reflect the real performance of the underlying portfolio. All assets are held in transparent, publicly verifiable wallets, ensuring that every REB token is backed by real reserves. Rebullion bridges traditional portfolio management with blockchain transparency, creating a modern, all-weather financial instrument built for long-term resilience
+<div class="about-grid">
+
+<div class="about-box">
+<h3>USDC Stability Layer</h3>
+<p>USDC provides liquidity and stability to the Rebullion ecosystem. It ensures users can enter and exit positions smoothly while maintaining a stable base value within the fund.</p>
+</div>
+
+<div class="about-box">
+<h3>Gold Reserve Hedge</h3>
+<p>Tokenized gold acts as a macro hedge against inflation and economic uncertainty, giving REB exposure to a proven store of value outside of crypto volatility.</p>
+</div>
+
+<div class="about-box">
+<h3>Ethereum Yield Engine</h3>
+<p>Ethereum is actively staked to generate yield, allowing REB holders to benefit from passive income while maintaining full liquidity through the token.</p>
+</div>
+
 </div>
 </section>
 
@@ -109,12 +128,12 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,0.05
 
 <div class="vault-card">
 <div class="vault-top"><div class="vault-title">Gold Vault</div><div class="badge">Hedge</div></div>
-<div class="balance">$55.345.54</div>
+<div class="balance">$0.00</div>
 <div class="vault-middle">
 <div class="stats">
-<div class="stat"><span>Total Locked</span>$55,345.54</div>
-<div class="stat"><span>Liquidity</span>$55,345.54</div>
-<div class="stat"><span>Investors</span>587</div>
+<div class="stat"><span>Total Locked</span>$0</div>
+<div class="stat"><span>Liquidity</span>$0</div>
+<div class="stat"><span>Users</span>0</div>
 <div class="stat"><span>Fee</span>1%</div>
 </div>
 <div class="chart"><svg><polyline points="0,80 50,60 100,65 150,40 200,50" fill="none" stroke="#facc15" stroke-width="2"/></svg></div>
@@ -124,12 +143,12 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,0.05
 
 <div class="vault-card">
 <div class="vault-top"><div class="vault-title">USDC Vault</div><div class="badge">Liquidity</div></div>
-<div class="balance">$54,098.13</div>
+<div class="balance">$0.00</div>
 <div class="vault-middle">
 <div class="stats">
-<div class="stat"><span>Total Locked</span>$54,098.13</div>
-<div class="stat"><span>Liquidity</span>$54,098.13</div>
-<div class="stat"><span>Users</span>587</div>
+<div class="stat"><span>Total Locked</span>$0</div>
+<div class="stat"><span>Liquidity</span>$0</div>
+<div class="stat"><span>Users</span>0</div>
 <div class="stat"><span>Fee</span>0.5%</div>
 </div>
 <div class="chart"><svg><polyline points="0,60 50,58 100,57 150,56 200,55" fill="none" stroke="#00ffae" stroke-width="2"/></svg></div>
@@ -139,10 +158,10 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,0.05
 
 <div class="vault-card">
 <div class="vault-top"><div class="vault-title">ETH Vault</div><div class="badge">Yield</div></div>
-<div class="balance">$56,045.56</div>
+<div class="balance">$0.00</div>
 <div class="vault-middle">
 <div class="stats">
-<div class="stat"><span>Total Locked</span>$55,045.56</div>
+<div class="stat"><span>Total Locked</span>$0</div>
 <div class="stat"><span>APY</span>4–6%</div>
 <div class="stat"><span>Users</span>0</div>
 <div class="stat"><span>Fee</span>1.5%</div>
@@ -160,4 +179,34 @@ footer{padding:40px;text-align:center;border-top:1px solid rgba(255,255,255,0.05
 <div class="buy-box">
 <label>Enter Amount (USDC)</label>
 <input placeholder="1000">
-<la
+<label>You Receive (REB)</label>
+<input placeholder="1000 REB @ $1 NAV">
+<p style="margin-top:10px;color:#aaa">Estimated Yield: 4–6% via ETH staking</p>
+<button class="buy-btn">Connect Wallet (Coming Soon)</button>
+
+<div class="steps">
+<div class="step-box">
+<h4>Step 1</h4>
+<p>Buy REB using USDC or USD (Visa, Mastercard coming soon).</p>
+</div>
+
+<div class="step-box">
+<h4>Step 2</h4>
+<p>Hold REB and track its NAV as it grows from ETH yield and asset performance.</p>
+</div>
+
+<div class="step-box">
+<h4>Step 3</h4>
+<p>Lock REB to earn up to 7% APY powered by our USDC, Gold, and ETH strategy.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<footer>
+<p>© 2026 Rebullion Finance</p>
+</footer>
+
+</body>
+</html>
